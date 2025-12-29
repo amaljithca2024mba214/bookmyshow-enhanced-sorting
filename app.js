@@ -102,7 +102,7 @@ function smartSort(eventsArray) {
 
 // ========== FILTERING ==========
 
-function filterEvents Genre(genre) {
+function filterEventsByGenre(genre) {
     currentGenreFilter = genre;
     const eventsWithDistance = addDistanceToEvents();
     
