@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookMyShow Enhanced Sorting</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-ticket-alt"></i>
+                <span>BookMyShow</span>
+                <span class="subtitle">Enhanced Sorting</span>
+            </div>
+            <nav class="nav">
+                <a href="#"><i class="fas fa-film"></i> Movies</a>
+                <a href="#"><i class="fas fa-music"></i> Events</a>
+                <a href="#"><i class="fas fa-theater-masks"></i> Plays</a>
+                <a href="#"><i class="fas fa-futbol"></i> Sports</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Controls Section -->
+            <section class="controls">
+                <div class="location-picker">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <input type="text" id="locationInput" placeholder="Enter your location..." value="Bangalore">
+                    <button id="detectLocation" class="btn-secondary">
+                        <i class="fas fa-crosshairs"></i> Detect Location
+                    </button>
+                </div>
+                
+                <div class="sort-selector">
+                    <label for="sortMethod">
+                        <i class="fas fa-sort"></i> Sort By:
+                    </label>
+                    <select id="sortMethod" class="sort-dropdown">
+                        <option value="smart">Smart Sort (AI-Weighted)</option>
+                        <option value="proximity">Nearest to Me</option>
+                        <option value="budget">Budget Friendly</option>
+                        <option value="accessibility">Accessibility First</option>
+                        <option value="popularity">Most Popular</option>
+                    </select>
+                </div>
+
+                <div class="filter-tags">
+                    <button class="tag active" data-genre="all">All</button>
+                    <button class="tag" data-genre="movie">Movies</button>
+                    <button class="tag" data-genre="concert">Concerts</button>
+                    <button class="tag" data-genre="comedy">Comedy</button>
+                    <button class="tag" data-genre="theatre">Theatre</button>
+                    <button class="tag" data-genre="sports">Sports</button>
+                </div>
+            </section>
+
+            <!-- Map Section -->
+            <section class="map-section">
+                <div id="map" class="map-container"></div>
+                <div class="map-legend">
+                    <div class="legend-item">
+                        <div class="legend-marker" style="background: #e74c3c;"></div>
+                        <span>Selected Event</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-marker" style="background: #3498db;"></div>
+                        <span>Available Events</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-marker" style="background: #2ecc71;"></div>
+                        <span>Your Location</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Stats Bar -->
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <i class="fas fa-calendar"></i>
+                    <span id="eventCount">0</span> Events Found
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <span id="avgDistance">0</span> km Avg Distance
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-rupee-sign"></i>
+                    <span id="avgPrice">0</span> Avg Price
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-star"></i>
+                    <span id="avgRating">0</span> Avg Rating
+                </div>
+            </div>
+
+            <!-- Events Grid -->
+            <section class="events-section">
+                <h2 class="section-title">Available Events</h2>
+                <div id="eventsGrid" class="events-grid">
+                    <!-- Event cards will be dynamically inserted here -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About This Project</h3>
+                    <p>An educational project demonstrating smart sorting algorithms for event discovery platforms.</p>
+                    <p class="disclaimer">Not affiliated with BookMyShow.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Sorting Methods</h3>
+                    <ul>
+                        <li><i class="fas fa-brain"></i> AI-Weighted Smart Sort</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Proximity-Based</li>
+                        <li><i class="fas fa-wallet"></i> Budget-Friendly</li>
+                        <li><i class="fas fa-wheelchair"></i> Accessibility-First</li>
+                        <li><i class="fas fa-fire"></i> Popularity-Based</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Technology</h3>
+                    <ul>
+                        <li>HTML5 / CSS3 / JavaScript</li>
+                        <li>Leaflet.js for Maps</li>
+                        <li>Font Awesome Icons</li>
+                        <li>Responsive Design</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <div class="social-links">
+                        <a href="https://github.com/amaljithca2024mba214" target="_blank">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                    </div>
+                    <p class="author">Created by Amaljith CA</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
